@@ -32,5 +32,8 @@
     <ClInclude Include="Time.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="Textures.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

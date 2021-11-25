@@ -4,14 +4,14 @@ out vec4 FragColor;
 in GS_OUT
 {
 	vec2 TexCoord;
-	vec3 fColor;
 }gs_in;
 
 uniform sampler2D texture1;
-uniform float alpha;
+uniform sampler2D textureBlueCircle;
+uniform mat4 model;
+uniform float alpha = 1.0;
 
 void main()
-{
-	 //FragColor = vec4(gs_in.fColor, 1.0f);   
-         FragColor = texture(texture1, gs_in.TexCoord)*alpha;
+{   
+	FragColor = mix(texture(textureBlueCircle, gs_in.TexCoord), texture(texture1, gs_in.TexCoord), (model[3][1] + 1.5) /3.0) * alpha;
 };

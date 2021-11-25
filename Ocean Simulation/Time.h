@@ -7,7 +7,8 @@ public:float cameraShakingSpeed = 0.0f;
     int secondsPassed = 0;
     int framesPerSecond = 0;    // This will store our fps
     int directionSpeed = 1;
-    Time(const char* nithing)
+    int globalFPS = 1;  //не ставь на ноль, т.к. нельзя делить на ноль
+    Time()
     {
         int i = 0; //doing nothing
         i++;
@@ -20,9 +21,10 @@ public:float cameraShakingSpeed = 0.0f;
         ++framesPerSecond;
         if (currentTime - lastTime > 1.0f)//one second has passed
         {
-            addSeconds();
+            //addSeconds();
             lastTime = currentTime;
             fprintf(stderr, "\nCurrent Frames Per Second: %d\n\n", (int)framesPerSecond);
+            globalFPS = framesPerSecond;
             framesPerSecond = 0;
         }
     }
@@ -42,7 +44,6 @@ public:float cameraShakingSpeed = 0.0f;
         {
             directionSpeed *= -1;
         }
-        std::cout << cameraShakingSpeed << std::endl;
         return cameraShakingSpeed;
     }
 
